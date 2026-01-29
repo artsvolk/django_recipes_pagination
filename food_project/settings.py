@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipes',
+    'stations',
 ]
 
 MIDDLEWARE = [
@@ -116,3 +117,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+# Путь к CSV-файлу с остановками транспорта
+import os
+BUS_STATION_CSV = os.path.join(BASE_DIR, 'data', 'bus_stations.csv')

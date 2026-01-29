@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Остановки транспорта</title>
+</head>
+<body>
+<h1>Остановки наземного транспорта</h1>
+
+{% for station in bus_stations %}
+    <p><strong>{{ station.Name }}</strong><br>
+       Улица: {{ station.Street }}<br>
+       Пересечение: {{ station.Crossing }}
+    </p>
+    <hr>
+{% empty %}
+    <p>Нет данных.</p>
+{% endfor %}
+
+<div>
+    {% if bus_stations.has_previous %}
+        <a href="?page=1">&laquo; Первая</a>
+        <a href="?page={{ bus_stations.previous_page_number }}">Назад</a>
+    {% endif %}
+
+    <span>Страница {{ bus_stations.number }} из {{ bus_stations.paginator.num_pages }}</span>
+
+    {% if bus_stations.has_next %}
+        <a href="?page={{ bus_stations.next_page_number }}">Вперёд</a>
+        <a href="?page={{ bus_stations.paginator.num_pages }}">Последняя &raquo;</a>
+    {% endif %}
+</div>
+</body>
+</html>

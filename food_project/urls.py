@@ -4,5 +4,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('recipes.urls')),
+    path('bus_stations/', include('stations.urls')),  # ← СНАЧАЛА конкретные маршруты
+    path('', include('recipes.urls')),                # ← ПОТОМ общий маршрут <dish>/
 ]
